@@ -1,0 +1,38 @@
+{
+  "name": "arcbinder",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "dev:pages": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.7",
+    "docx": "^9.7.1",
+    "file-saver": "^2.0.5",
+    "lucide-react": "^1.25.0",
+    "mammoth": "^1.12.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260718.1",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1",
+    "vitest": "^4.1.10",
+    "wrangler": "^4.112.0"
+  }
+}
