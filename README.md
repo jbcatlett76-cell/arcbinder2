@@ -116,6 +116,21 @@ Set `AI_PROXY_ALLOWED_ORIGIN` to the exact public ArcBinder origin, such as `htt
 
 The `functions/api/ai.ts` file is automatically deployed as `/api/ai` by Cloudflare Pages.
 
+### If Cloudflare fails during `npm clean-install`
+
+That message is an npm installer failure and occurs before ArcBinder's build command runs. This repository includes a public-registry lockfile, `.npmrc`, and a fallback Cloudflare build script.
+
+First, clear the Pages build cache and redeploy with the normal settings above. If the same npm error returns:
+
+1. Open **Workers & Pages → ArcBinder → Settings → Environment variables**.
+2. Add `SKIP_DEPENDENCY_INSTALL` with the value `true` for Production and Preview.
+3. Open **Build & deployments → Build configurations**.
+4. Change the build command to `bash build-cloudflare.sh`.
+5. Keep the output directory as `dist`.
+6. Save, clear the build cache, and redeploy.
+
+Cloudflare officially supports `SKIP_DEPENDENCY_INSTALL` for replacing its automatic dependency-install step with a custom command.
+
 ### Through Wrangler
 
 Authenticate Wrangler, then run:
