@@ -9,9 +9,9 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
-    "dev:pages": "npm run build && wrangler pages dev dist",
-    "deploy": "npm run build && wrangler pages deploy dist",
-    "build:cloudflare": "bash build-cloudflare.sh"
+    "deploy": "npm run build && wrangler deploy",
+    "build:cloudflare": "bash build-cloudflare.sh",
+    "dev:cloudflare": "npm run build && wrangler dev"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.7",

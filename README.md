@@ -187,3 +187,15 @@ The current source passes all three commands.
 ## PageBinder
 
 The Publish section already exports real files and contains the PageBinder integration point. The full layout studio remains a separate next-stage implementation, including trim sizes, gutters, mirrored margins, front matter, headers, page numbers, EPUB creation, and print-ready PDF validation.
+
+## Cloudflare Worker deployment (recommended for this repository)
+
+This repository now deploys as a Cloudflare Worker with Vite static assets and a Worker-powered `/api/ai` endpoint.
+
+Use these Cloudflare Workers Builds settings:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+The included `wrangler.jsonc` uploads `dist`, enables SPA route fallback, and runs the Worker before assets only for `/api/*` routes. Do not use `wrangler pages deploy` for a Worker project.
